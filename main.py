@@ -20,7 +20,6 @@ def main():
     
     show_banner()
     authenticate()
-    authenticate()
 
     while True:
         show_menu()

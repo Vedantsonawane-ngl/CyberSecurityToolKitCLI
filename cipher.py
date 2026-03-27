@@ -1,10 +1,13 @@
-# cipher.py
-
 from utils.helpers import post_action
 
 def caesar_cipher():
     while True:
-        print("\n=== Caesar Cipher Tool ===")
+        print("\n" + "="*45)
+        print("🔐 CIPHER TOOL (Caesar Cipher)")
+        print("="*45)
+        print("This tool allows you to encrypt or decrypt text")
+        print("using a shift-based substitution technique.\n")
+
         print("1. Encrypt")
         print("2. Decrypt")
 
@@ -15,12 +18,12 @@ def caesar_cipher():
         try:
             shift = int(input("Enter shift value (number): "))
         except ValueError:
-            print("❌ Shift must be a number\n")
+            print(" Shift must be a number\n")
             continue
 
         result = ""
 
-        if choice == "1":  # Encrypt
+        if choice == "1": 
             for char in text:
                 if char.isalpha():
                     base = 65 if char.isupper() else 97
@@ -28,9 +31,9 @@ def caesar_cipher():
                 else:
                     result += char
 
-            print("\n🔐 Encrypted Text:", result)
+            print("\nYour Encrypted Text:", result)
 
-        elif choice == "2":  # Decrypt
+        elif choice == "2": 
             for char in text:
                 if char.isalpha():
                     base = 65 if char.isupper() else 97
@@ -38,15 +41,14 @@ def caesar_cipher():
                 else:
                     result += char
 
-            print("\n🔓 Decrypted Text:", result)
+            print("\nYour Decrypted Text:", result)
 
         else:
-            print("❌ Invalid choice\n")
+            print("Invalid choice. Please try again...\n")
             continue
 
         print()
 
-        # 🔁 Redo / Menu logic
         action = post_action()
 
         if action == "menu":
