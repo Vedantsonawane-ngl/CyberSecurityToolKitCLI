@@ -18,13 +18,13 @@ def check_breach():
             file_path = os.path.join(base_dir, "common_passwords.txt")
 
             with open(file_path, "r") as file:
-                breached_passwords = file.read().splitlines()
+                common_passwords = [line.strip().split(",")[0] for line in file]
 
-            password = input("To check your password please write your password below. ")
+            password = input("To check your password please write your password below. \n")
 
             print("\n Breach Check Result:")
 
-            if password in breached_passwords:
+            if password in common_passwords:
                 print("⚠️ This password is COMPROMISED!")
                 print("❌ Found in common password database")
                 print("🚨 Do NOT use this password\n")
